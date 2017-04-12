@@ -41,8 +41,8 @@ class ProjectsController < ApplicationController
 
 
   def destroy
-    @wiki = Wiki.find(params[:id])
-    if @wiki.destroy
+    @project = Project.find(params[:id])
+    if @project.destroy
       flash[:notice] = "Wiki Removed"
       redirect_to root_path
     else
