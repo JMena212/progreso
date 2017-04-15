@@ -14,6 +14,49 @@
  *= require_self
  */
  
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import "bootstrap_form";
+ 
+@import 'bootstrap-sprockets';
+@import 'bootswatch/yeti/variables';
+@import 'bootstrap';
+
+@import url('https://fonts.googleapis.com/css?family=Timmana');
+
+body { padding-top: 80px; }
+
+@import 'bootswatch/yeti/bootswatch';
+
+
+.root-nav {
+  font-family: 'Timmana', sans-serif
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+.alert-notice {
+  @extend .alert-warning;
+}
+
+@keyframes fadeOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.alert {
+  animation: fadeOut 4000ms ease-in 0s 1 forwards;
+}
+
+.glyphicon-ok {
+  color: green;
+}
+
+.glyphicon-thumbs-up {
+  color: blue;
+}
+
+.glyphicon-warning-sign {
+  color: red;
+}
