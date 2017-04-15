@@ -5,6 +5,9 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @update = @project.updates.new 
+    @updates = @project.updates.where.not(id :nil).order_reverse_desc
+    @categories = Update.categories.keys.map { |c| [c.humanize, c] }
   end
 
   def new
@@ -43,10 +46,10 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     if @project.destroy
-      flash[:notice] = "Wiki Removed"
+      flash[:notice] = "Project deleted"
       redirect_to root_path
     else
-      flash[:alert] = "Wiki not removed"
+      flash[:alert] = "Project was not deleted"
       render :show
     end
   end

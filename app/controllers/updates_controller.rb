@@ -5,8 +5,17 @@ class UpdatesController < ApplicationController
   def show
   end
 
-  def new
+  def create
+   @project = Project.find(params[:id])
+   @update = @project.updates.new(update_params)
+    if @update.save
+     flash[:notice] 'update added'
+    else
+     flash[:alert] 'update failed to save'
+    end
   end
+  
+#new action is handled in the project controller
 
   def edit
   end
