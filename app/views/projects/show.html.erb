@@ -8,9 +8,10 @@
     <div class="row">
       <div class="col-md-6">
         <h3>Add update</h3>
-        <%= bootstrap_form_for [@project, @update] do |f| %>
+        <%= bootstrap_form_for [@project, @update], html: { multipart: true } do |f| %>
           <%= f.text_area :body %>
           <%= f.select :category, @categories %>
+          <%= f.file_field :image %>
           <%= f.submit %>
         <% end %>
       </div>
@@ -22,12 +23,15 @@
       <div class="media">
         <div class="media-left">
           <%= link_to(image_tag(current_user.avatar(:thumb), class: 'media-object'), '') %>
+          
         </div>
         <div class="media-body">
           <p><%= update.body %></p>
+          <p><%= image_tag(update.image(:medium)) %></p>
           <p>Status: <%= category_icon(update.category) %></p>
           <p><%= update.created_at.to_s(:short) %></p>
-
+    
+ 
         </div>
       </div>
     <% end %>
