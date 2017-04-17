@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @update = @project.updates.new 
-    @updates = @project.updates.where.not(id:nil).order_reverse_desc
+    @updates = @project.updates.where.not(id: nil).order_reverse_desc
     @categories = Update.categories.keys.map { |c| [c.humanize, c] }
   end
 

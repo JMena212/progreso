@@ -6,17 +6,28 @@ class UpdatesController < ApplicationController
   end
 
   def create
-   @project = Project.find(params[:id])
+   @project = Project.find(params[:project_id])
    @update = @project.updates.new(update_params)
     if @update.save
-     flash[:notice] 'update added'
+     flash[:notice] = 'update added'
     else
-     flash[:alert] 'update failed to save'
+     flash[:alert] = 'update failed to save'
     end
+    redirect_to @project
   end
   
 #new action is handled in the project controller
 
   def edit
   end
+  
+  
+  private
+  def update_params
+   params.require(:update).permit(:category, :body)
+  end
+  
+  
+  
 end
+
