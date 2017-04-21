@@ -4,7 +4,8 @@
     <p> <%= @project.body %> </p>
     <h4><%= link_to 'Edit Project', edit_project_path %> </h4>
     <h4><%= link_to 'Delete Project', project_path(@project), method: :delete %> </h4>
-
+    
+      
     <div class="row">
       <div class="col-md-6">
         <h3>Add update</h3>
@@ -27,7 +28,7 @@
           <p><%= update.body %></p>
           <p>Status: <%= category_icon(update.category) %></p>
           <p><%= update.created_at.to_s(:short) %></p>
-
+          
         </div>
       </div>
     <% end %>
