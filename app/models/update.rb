@@ -3,4 +3,7 @@ class Update < ActiveRecord::Base
   belongs_to :project
   scope :order_reverse_desc, -> { order(created_at: :desc) }
   enum category: [:on_track, :late, :ahead_of_schedule]
+  
+  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 end

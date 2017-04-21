@@ -24,7 +24,7 @@ class UpdatesController < ApplicationController
   
   private
   def update_params
-   params.require(:update).permit(:category, :body)
+   params.require(:update).permit(:category, :body, :image)
   end
   
   
