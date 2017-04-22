@@ -22,8 +22,7 @@
     <% @updates.each do |update| %>
       <div class="media">
         <div class="media-left">
-          <%= link_to(image_tag(current_user.avatar(:thumb), class: 'media-object'), '') %>
-          
+          <%= link_to(image_tag(update.user.avatar(:thumb), class: 'media-object'), '') %>
         </div>
         <div class="media-body">
           <p><%= update.body %></p>

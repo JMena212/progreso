@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
+  
   def index
     @projects = current_user.projects
   end

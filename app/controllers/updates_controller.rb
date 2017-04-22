@@ -8,7 +8,9 @@ class UpdatesController < ApplicationController
   def create
    @project = Project.find(params[:project_id])
    @update = @project.updates.new(update_params)
+   @update.user = current_user
     if @update.save
+     SendUpdateTextJob.perform_later(@project)
      flash[:notice] = 'update added'
     else
      flash[:alert] = 'update failed to save'

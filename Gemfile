@@ -20,6 +20,13 @@ gem 'devise'
 #paperclip for image drop
 gem 'paperclip'
 
+#Twilio for text
+gem 'twilio-ruby'
+
+gem 'figaro'
+
+gem 'sucker_punch'
+
 #bootstrap
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
