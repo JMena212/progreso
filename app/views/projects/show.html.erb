@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <h1><%= @project.title %></h1>
-    <p> <%= @project.body %> </p>
+    <p> <%= markdown(@project.body) %> </p>
     <h4><%= link_to 'Edit Project', edit_project_path %> </h4>
     <h4><%= link_to 'Delete Project', project_path(@project), method: :delete %> </h4>
 
