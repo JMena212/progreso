@@ -13,8 +13,8 @@
  *= require_tree .
  *= require_self
  */
- 
- 
+
+
 @import 'bootstrap-sprockets';
 @import 'bootswatch/yeti/variables';
 @import 'bootstrap';
@@ -59,4 +59,20 @@ body { padding-top: 80px; }
 
 .glyphicon-warning-sign {
   color: red;
+}
+
+.mtb1 {
+  margin: 1rem 0;
+}
+
+.mb1 {
+  margin-bottom: 1rem;
+}
+
+.mt1 {
+  margin-top: 1rem;
+}
+
+.field {
+  width: 60%;
 }

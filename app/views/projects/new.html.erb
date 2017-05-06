@@ -14,7 +14,7 @@
     <%= f.fields_for :contacts do |contact| %>
       <%= render 'contact_fields', f: contact %>
       <div class="links">
-        <%= link_to_add_association 'Add contact', f, :contacts %>
+        <%= link_to_add_association 'Add contact', f, :contacts, class: 'btn btn-default mb1' %>
       </div>
     <% end %>
   </div>
