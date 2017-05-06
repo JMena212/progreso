@@ -10,7 +10,7 @@ class UpdatesController < ApplicationController
    @update = @project.updates.new(update_params)
    @update.user = current_user
     if @update.save
-     SendUpdateTextJob.perform_later(@project)
+     SendUpdateTextJob.perform_later(@project, params[:contact])
      flash[:notice] = 'update added'
     else
      flash[:alert] = 'update failed to save'

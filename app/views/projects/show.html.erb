@@ -4,6 +4,8 @@
     <p> <%= markdown(@project.body) %> </p>
     <h4><%= link_to 'Edit Project', edit_project_path %> </h4>
     <h4><%= link_to 'Delete Project', project_path(@project), method: :delete %> </h4>
+    <h4><%= link_to 'Back to Index', root_path %> </h4>
+
 
     <div class="row">
       <div class="col-md-6">
@@ -12,6 +14,8 @@
           <%= f.text_area :body %>
           <%= f.select :category, @categories %>
           <%= f.file_field :image %>
+          <h4>Send to:</h4>
+           <div><%= select_tag :contact, options_for_select(@project.contacts.pluck(:name, :number)) %></div>
           <%= f.submit %>
         <% end %>
       </div>
@@ -25,7 +29,7 @@
           <%= link_to(image_tag(update.user.avatar(:thumb), class: 'media-object'), '') %>
         </div>
         <div class="media-body">
-          <p><%= update.body %></p>
+          <p><%= markdown(update.body) %></p>
           <p><%= image_tag(update.image(:medium)) %></p>
           <p>Status: <%= category_icon(update.category) %></p>
           <p><%= update.created_at.to_s(:short) %></p>

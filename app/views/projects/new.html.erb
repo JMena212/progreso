@@ -9,6 +9,15 @@
    <div class="form-group">
      <%= f.submit "Save Project", class: 'btn btn-success' %>
    </div>
+   <h3> Contacts </h3>
+  <div id="contacts">
+    <%= f.fields_for :contacts do |contact| %>
+      <%= render 'contact_fields', f: contact %>
+      <div class="links">
+        <%= link_to_add_association 'Add contact', f, :contacts %>
+      </div>
+    <% end %>
+  </div>
 <% end %>
 
 <h1>Preview</h1>

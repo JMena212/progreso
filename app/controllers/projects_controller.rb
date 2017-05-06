@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @project.contacts.build
   end
 
   def edit
@@ -58,7 +59,8 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-   params.require(:project).permit(:title, :body)
+   params.require(:project).permit(:title, :body,
+     contacts_attributes: [:id, :name, :number, :_destroy])
   end
   
 end
