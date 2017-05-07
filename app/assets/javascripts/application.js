@@ -13,9 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require bootstrap
 //= require cocoon
+//= require intltelinput_rails
+//= require_tree .
+
+function initTelMask() {
+  $('.phone-input').intlTelInput({
+    nationalMode: true,
+    preferredCountries: ['us', 'gb']
+  });
+}
 
 $(document).on('turbolinks:load', function() {
   var converter = new showdown.Converter();
@@ -23,5 +31,12 @@ $(document).on('turbolinks:load', function() {
     var mdown = $(this).val();
     var html = converter.makeHtml(mdown);
     $('#body-preview').html(html);
+  })
+  initTelMask();
+
+  $('#contacts').on('cocoon:after-insert', function() {
+    $('.phone-input').intlTelInput({
+      nationalMode: true
+    });
   })
 })

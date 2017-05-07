@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/GoWang/intl_tel_input_rails.git
+  revision: 1112f9430b95c286101ced9086c15593bc32d2a0
+  specs:
+    intltelinput_rails (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -192,6 +198,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   figaro
+  intltelinput_rails!
   jbuilder (~> 2.0)
   jquery-rails
   paperclip
@@ -208,4 +215,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.14.4
+   1.14.6
