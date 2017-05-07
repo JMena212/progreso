@@ -25,8 +25,10 @@ body { padding-top: 80px; }
 
 @import 'bootswatch/yeti/bootswatch';
 
-.root-nav {
-  font-family: 'Timmana', sans-serif
+.root-nav a {
+  color: black;
+  font-family: 'Timmana', sans-serif;
+  text-decoration: none;
 }
 
 .alert-alert {
