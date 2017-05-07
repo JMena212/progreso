@@ -1,14 +1,15 @@
 class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
-  
+
   def index
     @projects = current_user.projects
   end
 
   def show
     @project = Project.find(params[:id])
-    @update = @project.updates.new 
+    @update = @project.updates.new
     @updates = @project.updates.where.not(id: nil).order_reverse_desc
+    @contacts = @project.contacts.pluck(:name, :number)
     @categories = Update.categories.keys.map { |c| [c.humanize, c] }
   end
 
@@ -62,5 +63,5 @@ class ProjectsController < ApplicationController
    params.require(:project).permit(:title, :body,
      contacts_attributes: [:id, :name, :number, :_destroy])
   end
-  
+
 end
