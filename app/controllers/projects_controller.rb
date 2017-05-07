@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    @project.contacts.build
   end
 
 
@@ -37,7 +38,7 @@ class ProjectsController < ApplicationController
 
   def update
      @project = Project.find(params[:id])
-    if @project.update(wiki_params)
+    if @project.update(project_params)
       flash[:notice] = "Project updated"
     else
       flash[:alert] = 'Error creating Project. Please try again'
