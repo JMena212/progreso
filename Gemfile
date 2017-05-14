@@ -8,6 +8,9 @@ gem 'rails', '4.2.8'
 #nested forms gem
 gem "cocoon"
 
+# international phone input mask
+gem 'intltelinput_rails', github: 'GoWang/intl_tel_input_rails'
+
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

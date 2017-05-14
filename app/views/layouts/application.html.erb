@@ -5,13 +5,14 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/showdown/1.6.4/showdown.min.js' %>
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-filestyle/1.2.1/bootstrap-filestyle.min.js' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-      <h1 class='root-nav navbar-left'>¡PROGRESO!</h1>
-      <div class='navbar-right'>
+       <h1 class='root-nav navbar-left'><%= link_to '¡PROGRESO!', root_path %></h1>
+        <div class='navbar-right'>
         <% if user_signed_in? %>
           <p class='navbar-text'>
             Signed in as: <strong><%= current_user.email %></strong> |

@@ -1,13 +1,26 @@
 <h1>Project Portfolio</h1>
 
 <div class="row">
- <div class="col-md-8">
-   <%= link_to 'Add Project', new_project_path, id: "new_link" %>
-   <div class="projects">
-   <% @projects.each do |project| %>   
-       <div><%= link_to project.title, project %> </div>
-   <% end %>
-
-   </div>
- </div>
+  <div class="col-md-8">
+    <%= link_to 'Add Project', new_project_path, class: 'btn btn-success' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <div class="projects mt1">
+      <section>
+        <h3 class='project-list'>Current projects</h3>
+         <% @projects.each do |project| %>
+           <div class='media'>
+             <div class="media-left">
+               <%= link_to(image_tag(project.user.avatar(:thumb), class: 'media-object'), '') %>
+             </div>
+             <div class="media-body">
+               <%= link_to project.title, project %>
+             </div>
+           </div>
+         <% end %>
+      </section>
+    </div>
+  </div>
 </div>

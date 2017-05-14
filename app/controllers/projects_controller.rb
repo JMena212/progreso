@@ -7,10 +7,12 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @update = @project.updates.new 
+    @update = @project.updates.new
     @updates = @project.updates.where.not(id: nil).order_reverse_desc
+    @contacts = @project.contacts.pluck(:name, :number)
     @categories = Update.categories.keys.map { |c| [c.humanize, c] }
   end
+
 
   def new
     @project = Project.new
