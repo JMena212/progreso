@@ -1,2 +1,13 @@
-<h1>Updates#show</h1>
-<p>Find me in app/views/updates/show.html.erb</p>
+    <div class="media">
+        <div class="media-left">
+          <%= link_to(image_tag(@update.user.avatar(:thumb), class: 'media-object'), '') %>
+        </div>
+        <div class="media-body">
+          <p><%= markdown(@update.body) %></p>
+          <p><%= image_tag(@update.image(:medium)) %></p>
+          <p>Status: <%= category_icon(@update.category) %></p>
+          <p><%= @update.created_at.to_s(:short) %></p>
+    
+ 
+        </div>
+      </div>
